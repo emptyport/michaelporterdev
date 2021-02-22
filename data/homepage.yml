@@ -1,0 +1,215 @@
+# showcase
+showcase:
+  enable: true
+  title: "Hello, I’m Mike."
+  subtitle: "Software Developer & AR Creator"
+  description: "<p>By day I'm a backend software developer at 7-Eleven.</p><p>By night I am an augmented reality creator specializing in Snapchat lenses.</p>"
+  image:
+    x: "img/showcase/showcase.png"
+    _2x: "img/showcase/showcase@2x.png"
+  imageMobile:
+    x: "img/showcase/showcase-mobile.jpg"
+
+  button:
+    icon: "icon-mail-fill"
+    btnText: "Contact"
+    URL: "/#contact"
+
+  socialLinks:
+    - icon: "linkedin"
+      URL: "https://www.linkedin.com/in/mtporter/"
+
+    - icon: "github"
+      URL: https://github.com/emptyport
+
+    - icon: "github"
+      URL: https://github.com/modelsbymike3d
+
+# about
+about:
+  enable: true
+  title: "Who am I?"
+  content: '<p class="lead">
+    I am a strange mix of science, art, and tech. I got my degree in biochemistry and then moved into the tech sector, first doing customer support and then working my way into a developer role. I went back to school for more biochemistry, but then decided that I liked tech better and made the switch back into the field.
+    </p>
+    <p class="lead">
+    My professional experience is all in backend web development, but I do have some experience with frontend development through some side projects I work on.
+    </p>'
+  button:
+    icon: "icon-linkedin-fill"
+    btnText: "About Me"
+    URL: "https://www.linkedin.com/in/mtporter/"
+  image:
+    x: "img/who-am-i/profile1x.jpg"
+    _2x: "img/who-am-i/profile2x.jpg"
+
+# education
+education:
+  enable: true
+  title: "Education"
+  items:
+    - university: "UT Southwestern Medical Center"
+      year: "2017-2019"
+      degree: "Master of Science (MS), Molecular Biophysics with emphasis in Computational and Systems Biology"
+
+    - university: "Brigham Young University"
+      year: "2009-2015"
+      degree: "Bachelor of Science (BS), Biochemistry"
+
+# experience
+experience:
+  enable: true
+  title: "Experience"
+  description: "I love building tools and can quickly pick up new technologies."
+  button:
+    icon: "icon-linkedin-fill"
+    btnText: "Linkedin"
+    URL: "https://www.linkedin.com/company/radity/"
+
+  items:
+    - title: "Software Engineer"
+      company: "7-Eleven"
+      duration: "Sep 2019 - Current"
+      details: "<ul class='experience__ul'>
+      <li>Serverless API Developer</li>  
+      <li>Nodejs, MongoDB, AWS Lambda</li>
+      </ul>"
+
+    - title: "Graduate Student Researcher"
+      company: "UT Southwestern Medical Center"
+      duration: "Jul 2017 - Aug 2019"
+      details: "<ul class='experience__ul'>
+      <li>Created custom analysis pipeline</li>  
+      <li>Published several <a href='https://www.npmjs.com/~emptyport'>npm modules</a></li>
+      </ul>"
+
+    - title: "Support Engineer"
+      company: "Qualtrics"
+      duration: "Nov 2016 - May 2017"
+      details: "<ul class='experience__ul'>
+      <li>Fixed bugs and developed new API</li>  
+      <li>PHP, Ruby on Rails, MySQL, Docker</li>
+      <li>Created and deployed internal chatbot to assist with customer support - <a href='https://patents.google.com/patent/US20190057143A1/'>Granted US patent for work</a></li>
+      </ul>"
+
+    - title: "Product Specialist"
+      company: "Qualtrics"
+      duration: "Feb 2016 - Nov 2016"
+      details: "<ul class='experience__ul'>
+      <li>Provided support to customers over phone, email, and chat</li>  
+      <li>Contributed to and curated internal knowledgebase</li>
+      </ul>"
+
+# Client & Work
+client_and_work:
+  title: "Work"
+  enable: true
+
+  clients:
+
+  works:
+    - title: "Models By Mike"
+      description: "My personal website for all things augmented reality."
+      button:
+        icon: "icon-arrow-right"
+        btnText: "Read More"
+        URL: "/work/modelsbymike"
+      image:
+        x: "img/work/modelsbymike.png"
+      is_even: true
+
+    - title: "AR Bootcamp"
+      description: "Landing page for helping others learn how to create augmented reality filters"
+      button:
+        icon: "icon-arrow-right"
+        btnText: "Read More"
+        URL: "/work/arbootcamp"
+      image:
+        x: "img/work/arbootcamp.png"
+      is_even: false
+
+    - title: "AR Bootcamp Tutorials"
+      description: "Documentation style website containing augmented reality tutorials written by myself"
+      button:
+        icon: "icon-arrow-right"
+        btnText: "Read More"
+        URL: "/work/learn-arbootcamp"
+      image:
+        x: "img/work/learnarbootcamp.png"
+      is_even: true
+
+    - title: "Love, Life, & Lucille"
+      description: "Landing page for a book launch."
+      button:
+        icon: "icon-arrow-right"
+        btnText: "Read More"
+        URL: "/work/lovelifelucille"
+      image:
+        x: "img/work/lovelifelucille.png"
+      is_even: false
+
+    - title: "ARk"
+      description: "Web app to allow users to save their favorite Snapchat lenses"
+      button:
+        icon: "icon-arrow-right"
+        btnText: "Case Study"
+        URL: "/work/ark"
+      image:
+        x: "img/work/ark.png"
+      is_even: true
+
+# testimonial
+testimonial:
+  enable: false
+  title: "Testimonials"
+  items:
+    - name: "Daniel Jordan"
+      position: "Phonet, CEO"
+      content: "Cold calling can be a great way to generate quality leads. You get to speak to the gatekeepers and stakeholders, and you get a great insight into their requirements and influences. But cold calling is an art-form. It can be daunting, it’s always a lot of work, and you always need to make a good impression."
+      image:
+        x: "img/testimonials/daniel-jordan.jpg"
+        _2x: "img/testimonials/daniel-jordan@2x.jpg"
+
+    - name: "Jonathan Peters"
+      position: "Textic, CEO"
+      content: "Whether you or your loved one is encountering the natural decrease in mobility that occurs with the passing of time, or deals with an illness-related lack of physical agility, a stair lift can be the ideal way to put you in charge of your home again. Regardless of the shape or make of your living accommodation."
+      image:
+        x: "img/testimonials/jonathan-peters.jpg"
+        _2x: "img/testimonials/jonathan-peters@2x.jpg"
+
+    - name: "Antonio Willis"
+      position: "Cyberse, CEO"
+      content: "In this digital generation where information can be easily obtained within seconds, business cards still have retained their importance in the achievement of increased business exposure and business sales. If your business already has a bunch of printed cards distributed to a number of potential customers and yet."
+      image:
+        x: "img/testimonials/antonio-willis.jpg"
+        _2x: "img/testimonials/antonio-willis@2x.jpg"
+
+# contact
+contact:
+  enable: true
+  title: "Contact"
+  form:
+    method: "POST"
+    full_name: "Full Name"
+    email: "Email Address"
+    message: "Type Your Message Here"
+  phone:
+    title: "Phone Number"
+    number: "+41 (44) 505 10 99"
+  email:
+    title: "Email"
+    email: '<a href="mailto:team@radity.com">team@radity.com</a>'
+  address:
+    title: "Address"
+    address: "Radity GmbH<br />Max-Bill-Platz 5, 8050 Zürich"
+  button:
+    icon: "icon-mail-fill"
+    btnText: "Send Message"
+
+# newsletter
+newsletter:
+  enable: false
+  title: "Newsletter subscription"
+  success_message: "Successfully subscribed"
+  error_message: "Error while subscribing."
+  note: "We'll never share your email with anyone else."
