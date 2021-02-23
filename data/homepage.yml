@@ -152,7 +152,7 @@ client_and_work:
       description: "Web app to allow users to save their favorite Snapchat lenses"
       button:
         icon: "icon-arrow-right"
-        btnText: "Case Study"
+        btnText: "Read More"
         URL: "/work/ark"
       image:
         x: "img/work/ark.png"

@@ -20,4 +20,4 @@ I went with another Gatsby starter (an older version of the [Elemental starter](
 
 ## What can be improved
 
-My h1 tag on the main page gets cutoff on actual mobile devices (on my laptop in mobile view it was always fine) so I need to get that figured out. There's also a bit of duplication in the various layout files, I could probably consolidate most of it.
+There's a bit of duplication in the various layout files, I could probably consolidate most of it.
