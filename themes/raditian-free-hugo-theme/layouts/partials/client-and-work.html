@@ -11,8 +11,8 @@
           <div class="clients__item">
             <a href="https://radity.com">
               <img
-                class="lozad img-responsive"
-                src="data:image/gif;base64,R0lGODlhBwACAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAIAAAIDjI9YADs="
+                class="img-responsive"
+                src="{{ .logo.x | absURL }}"
                 data-src="{{ .logo.x | absURL }}"
                 data-srcset="{{ .logo.x | absURL }} 1x, {{ .logo._2x | absURL }} 2x"
                 alt="{{ .alt }}"
@@ -39,8 +39,8 @@
       </div>
       <div class="col-12 col-md-7 pl-md-0 text-right">
         <img
-          class='lozad img-responsive {{ cond (eq ( mod $index 4) 0) "img-clip-left-backward" "img-clip-left-forward" }}'
-          src="data:image/gif;base64,R0lGODlhBwACAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAIAAAIDjI9YADs="
+          class='img-responsive {{ cond (eq ( mod $index 4) 0) "img-clip-left-backward" "img-clip-left-forward" }}'
+          src="{{ .image.x | absURL }}"
           data-src="{{ .image.x | absURL }}"
           data-srcset="{{ .image.x | absURL }} 1x, {{ .image._2x | absURL }} 2x"
           alt="{{ .title }}"
@@ -49,8 +49,8 @@
       {{ else }}
       <div class="col-12 col-md-7 pl-md-0 text-right">
         <img
-          class='lozad img-responsive {{ cond (eq ( mod $index 4) 1)  "img-clip-right-backward" "img-clip-right-forward" }}'
-          src="data:image/gif;base64,R0lGODlhBwACAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAIAAAIDjI9YADs="
+          class='img-responsive {{ cond (eq ( mod $index 4) 1)  "img-clip-right-backward" "img-clip-right-forward" }}'
+          src="{{ .image.x | absURL }}"
           data-src="{{ .image.x | absURL }}"
           data-srcset="{{ .image.x | absURL }} 1x, {{ .image._2x | absURL }} 2x"
           alt="{{ .title }}"
