@@ -1,0 +1,61 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { formatDate } from "@/utils/date";
+import { postSlug } from "@/utils/postSlug";
+import { getCollection } from "astro:content";
+
+const postModules = import.meta.glob("../../content/blog/**/*.mdx");
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: postSlug(post.id) },
+  }));
+}
+
+const posts = await getCollection("blog", ({ data }) => !data.draft);
+const post = posts.find((entry) => postSlug(entry.id) === Astro.params.slug);
+
+if (!post) {
+  throw new Error(`No blog post found for slug: ${Astro.params.slug}`);
+}
+
+const postModuleId = post.id.endsWith(".mdx") ? post.id : `${post.id}.mdx`;
+const postModulePath = `../../content/blog/${postModuleId}`;
+const postModule = await postModules[postModulePath]?.();
+
+if (!postModule || typeof postModule !== "object" || !("default" in postModule)) {
+  throw new Error(`Unable to load blog post module: ${postModulePath}`);
+}
+
+const Content = postModule.default as (_props: Record<string, never>) => unknown;
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  image={post.data.heroImage}
+  type="article"
+>
+  <article class="article">
+    <header>
+      <a class="back-link" href="/writing/">Writing</a>
+      <h1>{post.data.title}</h1>
+      <p>{post.data.description}</p>
+      <div class="article-meta">
+        <time datetime={post.data.pubDate.toISOString()}>
+          {formatDate(post.data.pubDate, { month: "long", day: "numeric", year: "numeric" })}
+        </time>
+        <div class="tag-list">
+          {post.data.tags.map((tag) => <span>{tag}</span>)}
+        </div>
+      </div>
+      {post.data.heroImage && (
+        <img class="article-hero-image" src={post.data.heroImage} alt={post.data.heroAlt ?? ""} />
+      )}
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

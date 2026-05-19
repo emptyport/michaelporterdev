@@ -1,0 +1,41 @@
+---
+import BlogList from "@/components/BlogList.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getPageCount, getPagePosts, sortPosts } from "@/utils/blog";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = sortPosts(await getCollection("blog", ({ data }) => !data.draft));
+  const totalPages = getPageCount(posts.length);
+
+  return Array.from({ length: Math.max(0, totalPages - 1) }, (_, index) => {
+    const currentPage = index + 2;
+    return {
+      params: { page: String(currentPage) },
+      props: {
+        currentPage,
+        totalPages,
+        pagePosts: getPagePosts(posts, currentPage),
+      },
+    };
+  });
+}
+
+const { currentPage, totalPages, pagePosts } = Astro.props;
+---
+
+<BaseLayout
+  title={`Writing, page ${currentPage}`}
+  description="Technical writing from Michael Porter on backend systems, AI workflow automation, and software engineering."
+>
+  <section class="page-intro">
+    <p class="eyebrow">Writing</p>
+    <h1>Technical notes and essays.</h1>
+    <p>
+      Posts on practical lessons from backend systems, automation, AI-assisted workflows, and
+      the occasional sharp edge found while building.
+    </p>
+  </section>
+
+  <BlogList posts={pagePosts} currentPage={currentPage} totalPages={totalPages} />
+</BaseLayout>
