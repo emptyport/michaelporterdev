@@ -1,0 +1,23 @@
+---
+import WorkCard from "@/components/WorkCard.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { workHighlights } from "@/data/work";
+---
+
+<BaseLayout
+  title="Work"
+  description="Software engineering highlights from backend systems, AI workflow automation, data pipelines, and developer tools."
+>
+  <section class="page-intro">
+    <p class="eyebrow">Work</p>
+    <h1>Engineering work with measurable impact.</h1>
+    <p>
+      Selected projects from backend, AI, automation, and data-platform roles. Each highlight focuses on
+      the problem solved, the result delivered, and the technologies used.
+    </p>
+  </section>
+
+  <section class="work-grid wide">
+    {workHighlights.map((item) => <WorkCard item={item} />)}
+  </section>
+</BaseLayout>

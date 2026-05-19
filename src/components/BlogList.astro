@@ -1,0 +1,42 @@
+---
+import { formatDate } from "@/utils/date";
+import { postSlug } from "@/utils/postSlug";
+import type { BlogPost } from "@/utils/blog";
+
+type Props = {
+  posts: BlogPost[];
+  currentPage: number;
+  totalPages: number;
+};
+
+const { posts, currentPage, totalPages } = Astro.props;
+const previousHref =
+  currentPage <= 2 ? "/writing/" : `/writing/page/${currentPage - 1}/`;
+const nextHref = `/writing/page/${currentPage + 1}/`;
+---
+
+<section class="post-list index-list">
+  {posts.map((post) => (
+    <a class="post-card" href={`/writing/${postSlug(post.id)}/`}>
+      {post.data.heroImage && (
+        <img src={post.data.heroImage} alt={post.data.heroAlt ?? ""} loading="lazy" />
+      )}
+      <div>
+        <span>{formatDate(post.data.pubDate, { month: "short", day: "numeric", year: "numeric" })}</span>
+        <strong>{post.data.title}</strong>
+        <p>{post.data.description}</p>
+        <div class="tag-list">
+          {post.data.tags.map((tag) => <span>{tag}</span>)}
+        </div>
+      </div>
+    </a>
+  ))}
+</section>
+
+{totalPages > 1 && (
+  <nav class="pagination" aria-label="Writing pagination">
+    {currentPage > 1 ? <a href={previousHref}>Previous</a> : <span>Previous</span>}
+    <span>Page {currentPage} of {totalPages}</span>
+    {currentPage < totalPages ? <a href={nextHref}>Next</a> : <span>Next</span>}
+  </nav>
+)}

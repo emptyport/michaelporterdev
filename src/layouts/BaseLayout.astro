@@ -1,0 +1,47 @@
+---
+import SiteFooter from "@/components/SiteFooter.astro";
+import SiteHeader from "@/components/SiteHeader.astro";
+import "@/styles/global.css";
+
+type Props = {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: "website" | "article";
+};
+
+const siteName = "Michael Porter";
+const defaultDescription =
+  "Senior backend engineer building AI workflow automation, developer tools, data systems, and production APIs.";
+const { title = siteName, description = defaultDescription, image, type = "website" } = Astro.props;
+const pageTitle = title === siteName ? siteName : `${title} | ${siteName}`;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://michaelporter.dev");
+const imageUrl = image ? new URL(image, Astro.site ?? "https://michaelporter.dev") : undefined;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title="Michael Porter writing" href="/rss.xml" />
+    <title>{pageTitle}</title>
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    {imageUrl && <meta property="og:image" content={imageUrl} />}
+    {imageUrl && <meta name="twitter:image" content={imageUrl} />}
+    <meta name="twitter:card" content={imageUrl ? "summary_large_image" : "summary"} />
+  </head>
+  <body>
+    <SiteHeader />
+    <main>
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>
